@@ -5,102 +5,80 @@
 } 
 /* 전체 선택 */
 *{
-    /* 바깥 여백 초기화 */
-    margin: 0;
-    /* 내부 여백 초기화 */
     padding: 0;
-    /* 박스 넘침 방지 */
+    margin: 0;
     box-sizing: border-box;
 }
 /* 배경처리 */
 .container{
-    /* 배경의 크기 지정 */
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.8)
+    ),url('images/room.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 100%;
     height: 100vh;
-    /* 그라데이션과 이미지 삽입 */
-    background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.2)),url(./images/room.jpg);
 }
 /* 헤더배치 */
 .container .header{
     width: 80%;
     height: 80px;
-    /* 헤더영역의 크기 지정 */
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    /* 헤더안에 있는 요소를 수평 , 양쪽  */
 }
 /* 글자로고 */
 .container .header h1 a{
-    color: white;
-    /* 글자크기 */
-    text-decoration: none;
-    /* 링크태그의 밑줄 제거, 글자 기본 속성 제거 */
     font-family: abster;
-    /* 글꼴을 abster로 설정 */
-
+    text-decoration: none; 
+    color: aliceblue;
+    
 }
 /* 메뉴요소 배치 */
-/* .container .header .nav ul{
+.container .header .nav ul li{
+    margin: 0 10px;
     display: inline-flex;
-    justify-content: space-between;
+   
 }
-.container .header .nav ul li{
-    margin: 0 10px;
-} */
-
-.container .header .nav ul li{
-    display: inline-block;
-    margin: 0 10px;
-}
-/* 메뉴영역 배피를 위해 요소는 원래 블럭 요소인데 인라인 블럭요소로 변환하서 여백 생성 */
 /* 메뉴요소 스타일링 */
 .container .header .nav ul li a{
-    color: white;
-    text-decoration:none ;
+    text-decoration: none;
+    color: aliceblue;
 }
 /* 메뉴요소 마우스이벤트 */
 .container .header .nav ul li a:hover{
-    color: skyblue;
+    color: yellow;
 }
 /* 화면 중앙 요소 배치 */
 .container .hero{
     position: absolute;
     top: 50%;
     left: 50%;
-    /* 기준점을 브라우저 왼쪽 모서리로 설정하고 화면 중앙으로 위치하기 위해 x축으로 -50%만큼 y축으로 -50%만큼 이동 */
     transform: translate(-50%,-50%);
-    /* 배치된 위치를 기준으로 하위요소들의 위치를 조정하는 속성 */
-    color: white;
     text-align: center;
+    color: aliceblue;
 }
 /* 화면 중앙 요소 제목 */
 .container .hero h2{
-    font-size: 50px;
-    margin-bottom: 10px;
-    /* 중앙 요소 내용의 글자 크기 및 아래 여백 지정 */
+    font-size: 60px;
 }
 /* 화면 중앙 요소 본문 */
 .container .hero p{
-    font-size: 18px;
+    font-size: 22px;
 }
 /* 화면 중앙 요소 버튼 */
 .container .hero button{
-    background: none;
-    /* 기본 배경 제거 */
-    border-radius: 15px;
-    /* 테두리 둥글기 지정 */
-    border: 2px solid greenyellow;
-    /* 버튼 테두리 설정 */
-    padding: 10px 20px;
-    /* 내부 여백 */
-    color: white;
-    /* 글자색 지정 */
+    padding: 15px 20px;
     margin-top: 30px;
-    /* 버튼 위 요소와 여백 지정 */
+    background: none;
+    color: aliceblue;
+    border-radius: 20px;
+    border-color: aliceblue;
 }
 /* 화면 중앙 요소 버튼 처리 */
 .container .hero button:hover{
-    background-color:chartreuse;
+    background-color: yellow;
 }
-/* 가상 선택자 hover를 이용하여 요소위에 마우스를 올렷을깨 배경색을 변경 처리 */
+
