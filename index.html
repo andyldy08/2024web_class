@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>덧셈 계산기</title>
+    <script>
+        function calc() {
+            // 입력값 가져오기
+            let x = parseInt(document.getElementById('x').value);
+            let y = parseInt(document.getElementById('y').value);
+            
+            // 덧셈 계산
+            let sum = x + y;
+            
+            // 결과를 입력란에 출력
+            document.getElementById('sum').value = sum;
+        }
+    </script>
+</head>
+<body>
+    <h3>덧셈 계산기</h3>
+    <form name="myform">
+        첫번째 정수: <input id="x"><br>
+        두번째 정수: <input id="y"><br>
+        합계: <input id="sum"><br>
+        <input type="button" value="계산" onclick="calc()">
+    </form>
+</body>
+</html>
