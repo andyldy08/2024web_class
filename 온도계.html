@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>온도 변환기</title>
+</head>
+<body>
+    <table border="3">
+        <tr>
+            <td>섭씨 온도</td>
+            <td>화씨 온도</td>
+        </tr>
+        <script>
+            for(let c=0;c<10;c++){
+                let f = c * 9 / 5 + 32;
+                document.write(`<tr><td>${c}</td><td>${f}</td></tr>`);
+            }
+        </script>
+    </table>
+</body>
+</html>
