@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 맞추기 게임</title>
+    <link rel="stylesheet" href="https://picocss.com/pico.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 1em;
+        }
+
+        .result {
+            font-size: 1.2em;
+            margin-top: 20px;
+            color: #1e90ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>숫자 맞추기 게임</h1>
+        <p>1에서 100 사이의 숫자를 맞춰보세요.</p>
+        <input type="number" id="guess" min="1" max="100" class="input">
+        <br>
+        <button class="btn primary" onclick="checkGuess()">제출</button>
+        <p id="message" class="result"></p>
+        <p id="attempts" class="result"></p>
+    </div>
+
+    <script>
+        // 랜덤한 숫자 생성
+        const targetNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0; // 시도 횟수 초기화
+    
+        // 사용자의 추측을 검사하는 함수
+        function checkGuess() {
+            let userGuess = parseInt(document.getElementById('guess').value); // 사용자 입력 가져오기
+    
+            // 입력값이 숫자가 아니거나 범위(1에서 100 사이)를 벗어나면 경고 메시지 출력 후 함수 종료
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+                alert('1에서 100 사이의 숫자를 입력하세요.');
+                return;
+            }
+    
+            attempts++; // 시도 횟수 증가
+    
+            // 정답일 경우 처리
+            if (userGuess === targetNumber) {
+                document.getElementById('message').innerHTML = `축하합니다! ${attempts}번 만에 숫자를 맞췄습니다.`;
+                document.getElementById('message').style.color = '#4caf50'; // 축하 메시지 색상을 녹색으로 변경
+                document.getElementById('guess').disabled = true; // 입력 필드 비활성화
+            } else if (userGuess < targetNumber) { // 정답보다 작은 경우
+                document.getElementById('message').innerHTML = `${userGuess}보다 큰 숫자입니다.`;
+            } else { // 정답보다 큰 경우
+                document.getElementById('message').innerHTML = `${userGuess}보다 작은 숫자입니다.`;
+            }
+    
+            document.getElementById('attempts').innerHTML = `시도 횟수: ${attempts}`; // 시도 횟수 업데이트
+        }
+    </script>
+</body>
+</html>
